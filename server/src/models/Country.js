@@ -17,7 +17,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    continente: {
+    continents: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -30,10 +30,10 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     area: {
-      type: DataTypes.STRING,
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    poblacion: {
+    population: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

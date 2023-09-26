@@ -8,22 +8,22 @@ module.exports = (sequelize) => {
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4
         },
-        nombre: {
+        name: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        dificultad: {
+        difficulty: {
             type: DataTypes.INTEGER,
             validate: {
                 min: 1, max: 5
             },
             allowNull: false            
         },
-        duracion: {
+        duration: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        temporada: {
+        season: {
             type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
             allowNull: false
         }
