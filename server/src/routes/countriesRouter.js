@@ -1,12 +1,12 @@
 const { Router } = require("express");
 const router = Router();
-const allCountries = require('../controllers/allCountries')
+const {allCountriesHandler, byIdCountriesHandler, nameHandler} = require('../handlers/countriesHandler')
 
-router.get("/", allCountries);
+router.get("/", allCountriesHandler);
 
-// router.get("/:idPais", getDetailHandler);
+router.get("/search", nameHandler);
 
-// router.get("/countries/name", getNameHandler);
+router.get("/:id", byIdCountriesHandler);
 
 
 module.exports = router;
