@@ -5,7 +5,14 @@ const postActivitiesHandler = async (req, res) => {
     const {name, difficulty, duration, season, countries} = req.body;
     
     try {
-        console.log(req.body);
+
+        if (!req.body) {
+            return res.status(404).json({ error: "not found" });  
+        } 
+        if (difficulty > 5 || difficulty <= 0) {
+            return res.status(400).json({ error: "Invalid difficulty. It must be between 1 and 5" });
+        } 
+
         const newActivities = await postActivity(name, difficulty, duration, season, countries);
 
         if (newActivities) {
