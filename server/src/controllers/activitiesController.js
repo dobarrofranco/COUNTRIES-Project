@@ -49,8 +49,21 @@ const getActivity = async () => {
         return allActivities;
 
     } catch (error) {
-        throw new Error(error)
+        throw new Error(error);
     }
 }
 
-module.exports = { postActivity, getActivity};
+const deleteAllActivities = async () => {
+    try {
+        
+        return await Activity.destroy({
+            where: {},
+        });
+
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+
+module.exports = { postActivity, getActivity, deleteAllActivities};
