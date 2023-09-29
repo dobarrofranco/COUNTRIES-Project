@@ -4,7 +4,6 @@ module.exports = (sequelize) => {
     sequelize.define('Activity', {
         id: {
             type: DataTypes.UUID,
-            allowNull: false,
             primaryKey: true,
             defaultValue: DataTypes.UUIDV4
         },
@@ -24,7 +23,7 @@ module.exports = (sequelize) => {
             allowNull: false
         },
         season: {
-            type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
+            type: DataTypes.STRING,
             allowNull: false
         }
     },

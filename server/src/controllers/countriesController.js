@@ -1,4 +1,4 @@
-const { Country } = require('../db');
+const { Country, Activity } = require('../db');
 // const axios = require('axios');
 const { Op } = require('sequelize')
 
@@ -20,7 +20,9 @@ const getCountriesById = async (id) => {
     
     try {
 
-        const findId = await Country.findByPk(id);
+        const findId = await Country.findByPk(id, {
+            include: Activity
+        });
 
         return findId;
 
