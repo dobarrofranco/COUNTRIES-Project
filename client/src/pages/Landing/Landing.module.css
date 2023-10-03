@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
+
+.landingBack {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/01-MultiColoMap.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@keyframes color-change-2x {
+    0% {
+        background: #19dcea
+    }
+
+    100% {
+        background: #b22cff
+    }
+}
+
+.buttonHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 40%;
+    left: 48.3%;
+    border: 0;
+    padding: 2px;
+    transform: translate(-50%, -50%);
+    transition: .5s, color .10s;
+    -webkit-transition: .5s, color .10s;
+    -moz-transition: .5s, color .10s;
+    animation: color-change-2x 2s linear infinite alternate both;
+    appearance: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Teko', sans-serif;
+    height: 48px;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.buttonHome:hover {
+    box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.75);
+}

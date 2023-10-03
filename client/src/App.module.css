@@ -1,0 +1,22 @@
+:root {  
+    --primario: #77008f;
+    --secundario: #34a500;
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1 rem = 10px */    
+}
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+  body {
+    margin: 0;
+    /* font-family: var(--fuenteParrafos); */
+    font-size: 1.6rem;
+    background-image: url('./pages/images/04-antique-map.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
