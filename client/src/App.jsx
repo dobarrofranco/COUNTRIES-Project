@@ -5,13 +5,15 @@ import axios from 'axios';
 import Landing from './pages/Landing/Landing'
 import Nav from './pages/Nav/Nav';
 import Cards from './pages/components/Cards/Cards';
+import Paginated from './pages/components/Paginated/Paginated';
 
 import style from './App.module.css';
 
 function App() {
+  const location = useLocation();
+
   const [countries, setCountries] = useState([]);
 
-  const location = useLocation();
 
   async function onSearch(countryName) {
 
@@ -33,6 +35,7 @@ function App() {
  
       if (data.countries.name) {
         setCountries((oldCountries) => [...oldCountries, data.countries]);
+        // El estado anterior se proporciona para garantizar que estás actualizando el estado basándote en su valor anterior y evitando problemas de concurrencia.
       }
  
     } catch (error) {
@@ -48,6 +51,8 @@ function App() {
     
     setCountries(filteredCountries);
   }
+
+
 
   return (
 

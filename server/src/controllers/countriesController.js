@@ -5,7 +5,7 @@ const { Op } = require('sequelize');
 const getAllCountries = async () => {
 
     try {
-        
+
         const countryFind = await Country.findAll();
 
         return countryFind;
@@ -17,7 +17,7 @@ const getAllCountries = async () => {
 }
 
 const getCountriesById = async (id) => {
-    
+
     try {
 
         const findId = await Country.findByPk(id, {
@@ -32,20 +32,19 @@ const getCountriesById = async (id) => {
 }
 
 const getNameCountries = async (name) => {
-    
+
     try {
+
+        // console.log(Country.dataValues.name);
+        // const findName = await Country.filter((country) => country.dataValues.name === name);
 
         const findName = await Country.findOne({
             where: {
-                name: {
-                    [Op.iLike]: `%${name}%`
-                }
+                name: name.toUpperCase()
             }
-       });
+        });
 
-       console.log(findName);
-
-       return findName;
+        return findName;
 
     } catch (error) {
         throw new Error('not find name');
@@ -54,4 +53,4 @@ const getNameCountries = async (name) => {
 
 
 
-module.exports = {getAllCountries, getCountriesById, getNameCountries};
+module.exports = { getAllCountries, getCountriesById, getNameCountries };

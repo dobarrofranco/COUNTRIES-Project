@@ -20,7 +20,7 @@
 
             await Country.findOrCreate({
                 where: {
-                    name: countryInfo.name,
+                    name: countryInfo.name.toUpperCase(),
                     id: countryInfo.id,
                     area: countryInfo.area,
                     image: countryInfo.image,

@@ -35,13 +35,11 @@ const byIdCountriesHandler = async (req, res) => {
 
 const nameHandler = async (req, res) => {
 
-    console.log(req.query);
-
     const { name } = req.query;
 
     try {
-        
-        const countries = await getNameCountries(name);
+
+        const countries = await getNameCountries(name.toUpperCase());
 
         if (countries) {
             return res.status(200).json({countries})
