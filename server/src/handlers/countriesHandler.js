@@ -2,9 +2,11 @@ const {getAllCountries, getCountriesById, getNameCountries} = require('../contro
 
 const allCountriesHandler = async (req, res) => {
 
+    const { name } = req.query;
+
     try {
         
-        const countries = await getAllCountries();
+        const countries = name ? await getNameCountries(name) : await getAllCountries();
 
         return res.status(200).json({ countries: countries })
 
@@ -33,25 +35,4 @@ const byIdCountriesHandler = async (req, res) => {
 
 }
 
-const nameHandler = async (req, res) => {
-
-    const { name } = req.query;
-
-    try {
-
-        const countries = await getNameCountries(name.toUpperCase());
-
-        if (countries) {
-            return res.status(200).json({countries})
-        } else {
-            return res.status(404).json({countries: 'Countries not found'});
-        }
-
-    } catch (error) {
-        res.status(500).json({error: error.message});
-    }
-
-}
-
-
-module.exports = {allCountriesHandler, byIdCountriesHandler, nameHandler};
+module.exports = {allCountriesHandler, byIdCountriesHandler};

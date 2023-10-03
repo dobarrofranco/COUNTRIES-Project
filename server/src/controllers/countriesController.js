@@ -1,6 +1,4 @@
 const { Country, Activity } = require('../db');
-// const axios = require('axios');
-const { Op } = require('sequelize');
 
 const getAllCountries = async () => {
 
@@ -34,9 +32,6 @@ const getCountriesById = async (id) => {
 const getNameCountries = async (name) => {
 
     try {
-
-        // console.log(Country.dataValues.name);
-        // const findName = await Country.filter((country) => country.dataValues.name === name);
 
         const findName = await Country.findOne({
             where: {

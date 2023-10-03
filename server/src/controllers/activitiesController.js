@@ -4,21 +4,6 @@ const postActivity = async (name, difficulty, duration, season, countries ) => {
 
     try {
 
-        // const repeatedName = await Activity.findAll({
-        //     where: {
-        //         name: name
-        //     }
-        // })    
-
-        // if (repeatedName.length > 1 ) {
-        //     await Activity.destroy({
-        //         where: {
-        //                 name: name
-        //         }
-        //     })
-        //     throw new Error('The name of that activity has already been created');
-        // }
-
         const newActivity = await Activity.create({
             name, difficulty, duration, season, countries
         })
