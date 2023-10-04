@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
 
 export const GET_USERS = 'GET_USERS';
 export const GET_DETAIL = 'GET_DETAIL';

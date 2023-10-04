@@ -13,7 +13,8 @@ const Cards = () => {
 
   const totalPages = countries.length / perPage; // 25 
 
-  return (
+  return (  
+
     <div className={style.cards}>
       {countries
       .slice(
