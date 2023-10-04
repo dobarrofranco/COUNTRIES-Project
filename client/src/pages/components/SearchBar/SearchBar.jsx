@@ -1,17 +1,17 @@
 import {useState} from "react";
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar() {
    
-   const [countryName, setName] = useState("");
+   const [countryName, setCountryName] = useState("");
 
    function changeHandler(event) {
-      setName(event.target.value)
+      setCountryName(event.target.value)
    }
 
    return (
       <div>
          <input type='search' onChange={changeHandler} value={countryName}/>
-         <button onClick={() => {onSearch(countryName); setName("")}}>Buscar</button>
+         <button>Buscar</button>
       </div>
    );
 }
