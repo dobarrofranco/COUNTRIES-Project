@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import Cards from '../components/Cards/Cards'
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Cards from '../components/Cards/Cards'
 import { getCountries } from '../../redux/actions';
 
 import style from './Home.module.css';
@@ -16,7 +16,7 @@ const Home = () => {
     return (
         <div className={style.homeContainer}>
 
-            <Cards />     
+            <Cards />
 
         </div>
     )

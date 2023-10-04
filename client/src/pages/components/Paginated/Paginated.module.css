@@ -1,0 +1,53 @@
+/* .pagContainer {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+} */
+
+.pagContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttonLeft {
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.buttonRight {
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.inputPage {
+    height: 20px;
+    width: 28px;
+    padding: 5px;
+}
+
+@media (min-width: 768px) {
+    .pagContainer {
+        position: relative;
+        bottom: 0;
+        left: -228px;
+        width: 100%;
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .arrows {
+        width: 100px;
+    }
+}
