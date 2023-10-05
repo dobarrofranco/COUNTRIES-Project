@@ -21,7 +21,7 @@ const postActivity = async (name, difficulty, duration, season, countries ) => {
         return newActivity;
 
     } catch (error) {
-        throw new Error(error.message);
+        throw new Error('It was not possible to post the activity');
     }
     
 }
@@ -29,12 +29,14 @@ const postActivity = async (name, difficulty, duration, season, countries ) => {
 const getActivity = async () => {
     try {
         
-        const allActivities = await Activity.findAll();
+        const allActivities = await Activity.findAll({
+            include: Country
+        });
 
         return allActivities;
 
     } catch (error) {
-        throw new Error(error);
+        throw new Error('Activities could not be obtained');
     }
 }
 
@@ -46,9 +48,23 @@ const deleteAllActivities = async () => {
         });
 
     } catch (error) {
-        throw new Error(error);
+        throw new Error('Activities could not be deleted');
+    }
+}
+
+const deleteActivity = async (id) => {
+    try {
+        
+        return await Activity.destroy({
+            where: {
+                id: id
+            }
+        });
+
+    } catch (error) {
+        throw new Error('The activity could not be deleted');
     }
 }
 
 
-module.exports = { postActivity, getActivity, deleteAllActivities};
+module.exports = { postActivity, getActivity, deleteAllActivities, deleteActivity};

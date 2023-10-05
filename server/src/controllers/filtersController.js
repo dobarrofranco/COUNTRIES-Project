@@ -59,4 +59,21 @@ const orderPopulation = async (order) => {
     }
 }
 
-module.exports = {filterContinent, orderByName, orderPopulation};
+const activityType = async (name) => {
+    try {
+        
+        const type = await Activity.findAll({
+            where: {
+                name: name
+            },
+            include: Country
+        });
+
+        return type;
+
+    } catch (error) {
+        throw new Error('Activity type not found');
+    }
+}
+
+module.exports = {filterContinent, orderByName, orderPopulation, activityType};

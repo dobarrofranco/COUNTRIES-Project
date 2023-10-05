@@ -8,7 +8,7 @@ const allCountriesHandler = async (req, res) => {
         
         const countries = name ? await getNameCountries(name) : await getAllCountries();
 
-        return res.status(200).json({ countries: countries })
+        return res.status(200).json(countries)
 
     } catch (error) {
         res.status(500).json({error: error.message});
@@ -24,9 +24,9 @@ const byIdCountriesHandler = async (req, res) => {
         const countries = await getCountriesById(id)
 
         if (countries) {
-            return res.status(200).json({countries: countries});
+            return res.status(200).json(countries);
         } else {
-            return res.status(404).json({countries: "no hay nada"});
+            return res.status(404).json({countries: "Not found"});
         }
 
     } catch (error) {

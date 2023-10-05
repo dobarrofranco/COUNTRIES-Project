@@ -4,12 +4,14 @@ const getAllCountries = async () => {
 
     try {
 
-        const countryFind = await Country.findAll();
+        const countryFind = await Country.findAll({
+            include: Activity
+        });
 
         return countryFind;
 
     } catch (error) {
-        throw new Error('No se encontraron paises - ');
+        throw new Error('No countries found');
     }
 
 }
@@ -25,24 +27,30 @@ const getCountriesById = async (id) => {
         return findId;
 
     } catch (error) {
-        throw new Error(error);
+        throw new Error('No id found');
     }
 }
 
 const getNameCountries = async (name) => {
-
+    const arr = []
     try {
 
         const findName = await Country.findOne({
             where: {
                 name: name.toUpperCase()
-            }
+            },
+            include: Activity 
         });
 
-        return findName;
+        if (findName === null) {
+            throw new Error('No names found');
+        }
+        
+        arr.push(findName);
+        return arr;
 
     } catch (error) {
-        throw new Error('not find name');
+        throw new Error('No names found');
     }
 }
 

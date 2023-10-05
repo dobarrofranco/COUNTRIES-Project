@@ -1,4 +1,4 @@
-const {postActivity, getActivity, deleteAllActivities} = require('../controllers/activitiesController');
+const {postActivity, getActivity, deleteAllActivities, deleteActivity} = require('../controllers/activitiesController');
 
 const postActivitiesHandler = async (req, res) => {
     
@@ -42,7 +42,7 @@ const getActivityHandler = async (req, res) => {
 const deleteAllActivitiesHandler = async (req, res) => {
     try {
         
-        const deleted = await deleteAllActivities();
+        await deleteAllActivities();
         return res.status(200).json({message: 'All activities deleted'});
 
     } catch (error) {
@@ -50,4 +50,18 @@ const deleteAllActivitiesHandler = async (req, res) => {
     }
 }
 
-module.exports = {postActivitiesHandler, getActivityHandler, deleteAllActivitiesHandler};
+const deleteActivityHandler = async (req, res) => {
+    
+    const { id } = req.params;
+    
+    try {
+        
+        await deleteActivity(id);
+        return res.status(200).json({message: 'Activity deleted'});
+
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+}
+
+module.exports = {postActivitiesHandler, getActivityHandler, deleteAllActivitiesHandler, deleteActivityHandler};
