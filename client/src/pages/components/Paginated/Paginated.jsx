@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { VscArrowRight } from 'react-icons/vsc'
 import { VscArrowLeft } from 'react-icons/vsc'
 import style from './Paginated.module.css'
