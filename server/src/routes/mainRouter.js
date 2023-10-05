@@ -1,10 +1,12 @@
 const { Router } = require("express");
 const countriesRouter = require('./countriesRouter');
 const activitiesRouter = require('./activitiesRouter');
+const filtersRouter = require('./filtersRouter');
 
 const router = Router();
 
 router.use('/countries', countriesRouter);
 router.use('/activities', activitiesRouter);
+router.use('/filter', filtersRouter)
 
 module.exports = router;
