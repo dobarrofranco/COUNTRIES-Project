@@ -4,6 +4,7 @@ import Cards from '../components/Cards/Cards'
 import SearchBar from '../components/SearchBar/SearchBar';
 import Paginated from '../components/Paginated/Paginated';
 import OptionFilter from '../components/OptionFilter/OptionFilter';
+import Activities from '../components/Activities/Activities';
 import { getCountries } from '../../redux/actions';
 
 import style from './Home.module.css';
@@ -13,11 +14,14 @@ const Home = () => {
     const dispatch = useDispatch();
 
     const countries = useSelector(state => state.countries);
+    const activity = useSelector(state => state.activityType);
 
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10); //Elementos por página.
   
     const totalPages = Math.ceil(countries.length / perPage); // 25 
+
+    const [input, setInput] = useState(1);
 
     useEffect(() => {
         dispatch(getCountries());
@@ -26,13 +30,15 @@ const Home = () => {
     return (
         <div className={style.homeContainer}>
             
-            <SearchBar page={page} setPage={setPage} perPage={perPage} totalPages={totalPages}/>
+            <SearchBar setPage={setPage}/>
 
-            <OptionFilter />
+            <OptionFilter setPage={setPage} setInput={setInput}/>
+
+            {activity.length > 0 ? <Activities /> : null}
 
             <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages}/>
 
-            {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages}/> : null}
+            {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages} input={input} setInput={setInput} /> : null}
 
         </div>
     )

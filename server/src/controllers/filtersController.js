@@ -1,4 +1,6 @@
 const {Country, Activity} = require('../db');
+const { Op } = require('sequelize');
+
 
 const filterContinent = async (continent) => {
     
@@ -69,11 +71,31 @@ const activityType = async (name) => {
             include: Country
         });
 
+        if(type.length === 0) {
+            throw new Error(error)
+        }
+
         return type;
 
     } catch (error) {
         throw new Error('Activity type not found');
     }
 }
+
+// const activityTypeOther = async (name) => {
+//     try {
+        
+//         const others = await Activity.findAll({
+//             where: {
+//                 [Op.notLike]: `%${name}%` 
+//             }
+//         })
+
+//         return others;
+
+//     } catch (error) {
+//         throw new Error('Just one activity');
+//     }
+// }
 
 module.exports = {filterContinent, orderByName, orderPopulation, activityType};

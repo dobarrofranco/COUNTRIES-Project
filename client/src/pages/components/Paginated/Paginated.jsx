@@ -3,9 +3,7 @@ import { VscArrowRight } from 'react-icons/vsc'
 import { VscArrowLeft } from 'react-icons/vsc'
 import style from './Paginated.module.css'
 
-const Paginated = ({ page, setPage, totalPages }) => {
-
-    const [input, setInput] = useState(1);
+const Paginated = ({ page, setPage, totalPages, input, setInput }) => {
 
     const nextPage = () => {
         setInput(parseInt(input) + 1);

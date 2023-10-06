@@ -20,7 +20,7 @@ export default function Nav () {
 
             
             <Link to='/home'>
-                <button onClick={handleClick()}>Home</button>
+                <button onClick={handleClick()}>Todos los países</button>
             </Link>
 
         </div>
