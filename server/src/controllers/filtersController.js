@@ -22,13 +22,13 @@ const orderByName = async (order) => {
     try {
         
         
-        if (order === 'A') {
+        if (order === 'A-Z') {
             const countries = await Country.findAll()
             const orderName = countries.sort((a, b) => a.name.localeCompare(b.name))
             return orderName;
         }
 
-        else if (order === 'B') {
+        else if (order === 'Z-A') {
             const countries = await Country.findAll()
             const orderName = countries.sort((a, b) => b.name.localeCompare(a.name))
             return orderName;
@@ -48,7 +48,7 @@ const orderPopulation = async (order) => {
             return orderName;
         }
 
-        else if (order === 'B') {
+        else if (order === 'D') {
             const countries = await Country.findAll()
             const orderName = countries.sort((a, b) => a.population - b.population)
             return orderName;
