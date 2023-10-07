@@ -1,0 +1,48 @@
+.backForm {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../images/09-activities.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 90%;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.formBox {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+    width: 700px;
+}
+
+p {
+    margin: 0;
+    padding: 40px 0 0 0
+}
+
+input {
+    width: 200px;
+}
+
+.nombreForm {
+    width: 200px;
+}
+
+.diffForm {
+    width: 200px;
+}
+
+.durForm {
+    width: 200px;
+}
+
+.tempForm {
+    width: 200px;
+}

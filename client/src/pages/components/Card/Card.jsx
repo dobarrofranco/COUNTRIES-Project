@@ -6,8 +6,6 @@ const Card = ({id, name, image, continents, capital, subregion, area, population
   return (
     <div className={style.cardContainer}>
 
-        {/* <button className={style.closeButton} onClick={()=>{onClose(id)}}>X</button> */}
-
         <Link to={`../detail/${id}`}>
           <h2>{name}</h2>
         </Link>

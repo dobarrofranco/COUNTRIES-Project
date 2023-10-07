@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import Card from '../Card/Card'
+import React from 'react'
 import { useSelector } from 'react-redux'
+import Card from '../Card/Card'
 import style from './Cards.module.css'
-import Paginated from '../Paginated/Paginated'
 
 const Cards = ({page, perPage}) => {
 

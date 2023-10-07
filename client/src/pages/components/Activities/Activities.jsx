@@ -1,19 +1,26 @@
 import { useSelector } from 'react-redux'
+import Activity from '../Activity/Activity'
 import style from './Activities.module.css'
 
 const Activities = () => {
 
     const activity = useSelector(state => state.activityType);
-
     // console.log(activity);
-
+    //activity[0].Countries[0].name
     return (
         <div className={style.activitiesContainer}>
-            <p>País: {activity[0].Countries[0].name}</p>
-            <h4>Nombre: {activity[0].name}</h4>
-            <p>Dificultad: {activity[0].difficulty}</p>
-            <p>Estación: {activity[0].season}</p>
-
+            
+            <h4>Pais: {activity[0].Countries[0].name}</h4>
+            {activity.map((activity) => (
+                <Activity
+                    key={activity.id}
+                    name={activity.name}
+                    difficulty={activity.difficulty}
+                    season={activity.season}
+                    duration={activity.duration}
+                />
+            ))}
+            
         </div>
     )
 }

@@ -18,25 +18,27 @@ const Home = () => {
 
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10); //Elementos por página.
-  
+
     const totalPages = Math.ceil(countries.length / perPage); // 25 
 
     const [input, setInput] = useState(1);
 
     useEffect(() => {
         dispatch(getCountries());
-    },[dispatch])
+    }, [dispatch])
 
     return (
         <div className={style.homeContainer}>
-            
-            <SearchBar setPage={setPage}/>
 
-            <OptionFilter setPage={setPage} setInput={setInput}/>
+            <SearchBar setPage={setPage} />
 
-            {activity.length > 0 ? <Activities /> : null}
+            <OptionFilter setPage={setPage} setInput={setInput} />
 
-            <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages}/>
+            <div className={style.activitiesContainer}>
+                {activity.length > 0 ? <Activities /> : null}
+            </div>
+
+            <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages} />
 
             {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages} input={input} setInput={setInput} /> : null}
 

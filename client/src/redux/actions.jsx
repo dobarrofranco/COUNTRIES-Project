@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const GET_USERS = 'GET_USERS';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
+export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_DETAIL = 'GET_DETAIL';
 export const SEARCH_NAME = 'SEARCH_NAME';
 export const CLEAN_DETAIL = 'CLEAN_DETAIL';
@@ -29,6 +30,16 @@ export const getActivities = () => {
         const { data } = await axios('http://localhost:3001/activities');
         dispatch({
             type: GET_ACTIVITIES,
+            payload: data
+        })
+    }
+}
+
+export const createActivity = () => {
+    return async function (dispatch) {
+        const { data } = await axios.post(`http://localhost:3001/activities`);
+        dispatch({
+            type: CREATE_ACTIVITY,
             payload: data
         })
     }
@@ -144,3 +155,4 @@ export const activityType = (type) => {
         })
     }
 }
+

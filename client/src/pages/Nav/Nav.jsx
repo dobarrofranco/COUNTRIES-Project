@@ -23,6 +23,10 @@ export default function Nav () {
                 <button onClick={handleClick()}>Todos los países</button>
             </Link>
 
+            <Link to='/form'>
+                <button>Crear nueva actividad</button>
+            </Link>
+
         </div>
 
     )

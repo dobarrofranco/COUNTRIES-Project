@@ -1,4 +1,4 @@
-import { ACTIVITY_TYPE, CLEAN_DETAIL, FILTER_CONTINENT, FILTER_CONTINENT_ORDER_NAME_AZ, FILTER_CONTINENT_ORDER_NAME_ZA, FILTER_CONTINENT_POPULATION_A, FILTER_CONTINENT_POPULATION_D, GET_ACTIVITIES, GET_DETAIL, GET_USERS, ORDER_NAME, ORDER_POPULATION, SEARCH_NAME } from "./actions";
+import { ACTIVITY_TYPE, CLEAN_DETAIL, CREATE_ACTIVITY, FILTER_CONTINENT, FILTER_CONTINENT_ORDER_NAME_AZ, FILTER_CONTINENT_ORDER_NAME_ZA, FILTER_CONTINENT_POPULATION_A, FILTER_CONTINENT_POPULATION_D, GET_ACTIVITIES, GET_DETAIL, GET_USERS, ORDER_NAME, ORDER_POPULATION, SEARCH_NAME } from "./actions";
 
 const initialState = {
     countries: [],
@@ -6,7 +6,8 @@ const initialState = {
     countryDetail: [],
     continents: [],
     activities: [],
-    activityType: []
+    activityType: [],
+    activityCreated: []
 }
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -23,6 +24,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 activities: payload
+            }
+
+        case CREATE_ACTIVITY:
+            return {
+                ...state,
+                activityCreated: payload
             }
         
         case GET_DETAIL:
