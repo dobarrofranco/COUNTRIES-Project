@@ -1,4 +1,4 @@
-const {filterContinent, orderByName, orderPopulation, activityType} = require('../controllers/filtersController');
+const {filterContinent, orderByName, orderPopulation, activityType, getContinents} = require('../controllers/filtersController');
 
 const filterContinentHandler = async (req, res) => {
     
@@ -12,6 +12,19 @@ const filterContinentHandler = async (req, res) => {
     } catch (error) {
         res.status(500).json({error: error.message});
     }
+}
+
+const getContinentsHandler = async (req, res) => {
+    
+    try {
+        
+        const continents = await getContinents();
+        return res.status(200).json(continents) 
+
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+
 }
 
 const orderByNameHandler = async (req, res) => {
@@ -57,4 +70,4 @@ const activityTypeHandler = async (req, res) => {
     }
 }
 
-module.exports = {filterContinentHandler, orderByNameHandler, orderPopulationHandler, activityTypeHandler};
+module.exports = {filterContinentHandler, orderByNameHandler, orderPopulationHandler, activityTypeHandler, getContinentsHandler};

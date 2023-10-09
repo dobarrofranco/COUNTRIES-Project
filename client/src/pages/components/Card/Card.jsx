@@ -1,24 +1,27 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import style from './Card.module.css'
 
-const Card = ({id, name, image, continents, capital, subregion, area, population, onClose}) => {
+const Card = ({ id, name, image, continents, capital, subregion, area, population, onClose }) => {
   return (
-    <div className={style.cardContainer}>
 
-        <Link to={`../detail/${id}`}>
-          <h2>{name}</h2>
-        </Link>
+    <NavLink className={style.navlink} to={`../detail/${id}`}>
+      <div className={style.cardContainer}>
+
+        <h2 className={style.name}>{name}</h2>
+
         {/* <h3>Continente: {continents}</h3> */}
         {/* <h3>Capital: {capital}</h3> */}
         {/* <h3>Area: {area} km²</h3> */}
-        <h3>{population} habitantes</h3>
-        <Link to={`../detail/${id}`}>
-          <img src={image} alt={`Bandera de ${name}`} />
-        </Link>
-        
+        <h3 className={style.population} >{population} habitantes</h3>
 
-    </div>
+        <img className={style.imgCard} src={image} alt={`Bandera de ${name}`} />
+
+
+
+      </div>
+    </NavLink>
+
   )
 }
 

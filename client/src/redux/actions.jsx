@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const GET_USERS = 'GET_USERS';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
-export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
+export const GET_CONTINENTS = 'GET_CONTINENTS';
 export const GET_DETAIL = 'GET_DETAIL';
 export const SEARCH_NAME = 'SEARCH_NAME';
 export const CLEAN_DETAIL = 'CLEAN_DETAIL';
@@ -35,11 +35,11 @@ export const getActivities = () => {
     }
 }
 
-export const createActivity = () => {
+export const getContinents = () => {
     return async function (dispatch) {
-        const { data } = await axios.post(`http://localhost:3001/activities`);
+        const { data } = await axios('http://localhost:3001/filter/continent');
         dispatch({
-            type: CREATE_ACTIVITY,
+            type: GET_CONTINENTS,
             payload: data
         })
     }

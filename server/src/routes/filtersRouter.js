@@ -1,6 +1,8 @@
 const { Router } = require("express");
-const {filterContinentHandler, orderByNameHandler, orderPopulationHandler, activityTypeHandler} = require('../handlers/filtersHandler')
+const {filterContinentHandler, orderByNameHandler, orderPopulationHandler, activityTypeHandler, getContinentsHandler} = require('../handlers/filtersHandler')
 const router = Router();
+
+router.get('/continent', getContinentsHandler);
 
 router.get('/continent/:continent', filterContinentHandler);
 

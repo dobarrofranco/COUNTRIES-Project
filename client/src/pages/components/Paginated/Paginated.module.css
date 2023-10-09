@@ -20,6 +20,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .buttonRight {
@@ -29,6 +30,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background-color: transparent;
 }
 
 .inputPage {

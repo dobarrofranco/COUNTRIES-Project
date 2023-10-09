@@ -22,7 +22,7 @@
     width: 700px;
 }
 
-p {
+.formProps {
     margin: 0;
     padding: 40px 0 0 0
 }
@@ -45,4 +45,28 @@ input {
 
 .tempForm {
     width: 200px;
+}
+
+.selectsForm {
+    position: relative;
+    padding: 20px;
+    left: 50%;
+}
+
+.countryForm {
+    padding: 20px;
+}
+
+.selectForm {
+    width: 205px;
+    text-align: center;
+}
+
+.onlyButton {
+    position: relative;
+    left: 23%;
+}
+
+.formButton {
+    padding: 20px;
 }

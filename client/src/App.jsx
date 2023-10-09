@@ -15,7 +15,7 @@ function App() {
 
     <div className={style.App}>
 
-      {location.pathname === '/home' ? <Nav></Nav> : null}
+      {location.pathname !== '/' ? <Nav></Nav> : null}
 
       <Routes>
 

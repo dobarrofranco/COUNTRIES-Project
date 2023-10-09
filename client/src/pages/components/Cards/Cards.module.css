@@ -1,14 +1,36 @@
+
 .cards {
     display: flex;
     flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 20px;
+    justify-content: center;
+    width: 40vw;
+    margin-left: auto;
 }
 
 @media (min-width: 768px) {
     .cards {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        width: 70vw;
+        justify-items: center;
+        text-align: center;
+        align-items: center;
+        margin-left: auto;
         gap: 10px;
+        
     }
 }
+
+@media (min-width: 970px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-items: center;
+        width: 82vw;
+        margin-left: auto;
+    }
+}
+

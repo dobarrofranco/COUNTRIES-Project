@@ -5,7 +5,7 @@ import SearchBar from '../components/SearchBar/SearchBar';
 import Paginated from '../components/Paginated/Paginated';
 import OptionFilter from '../components/OptionFilter/OptionFilter';
 import Activities from '../components/Activities/Activities';
-import { getCountries } from '../../redux/actions';
+import { getCountries, activityType } from '../../redux/actions';
 
 import style from './Home.module.css';
 
@@ -27,7 +27,12 @@ const Home = () => {
         dispatch(getCountries());
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(activityType());
+    }, [dispatch])
+
     return (
+
         <div className={style.homeContainer}>
 
             <SearchBar setPage={setPage} />
@@ -43,6 +48,7 @@ const Home = () => {
             {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages} input={input} setInput={setInput} /> : null}
 
         </div>
+
     )
 }
 

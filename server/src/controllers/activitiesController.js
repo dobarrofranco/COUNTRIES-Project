@@ -11,7 +11,7 @@ const postActivity = async (name, difficulty, duration, season, countries ) => {
         if (countries && countries.length > 0) {
             const selectedCountries = await Country.findAll({
                 where: {
-                    id: countries
+                    name: countries.toUpperCase()
                 }
             });
 
