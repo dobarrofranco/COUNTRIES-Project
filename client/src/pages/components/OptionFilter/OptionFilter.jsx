@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react";
 import { filterContinent, orderName, orderPopulation, filterContinentOrderNameAZ, filterContinentOrderNameZA, filterContinentPopulationA, filterContinentPopulationD, activityType, getActivities, getContinents } from "../../../redux/actions"
-import axios from "axios";
 
 import style from './OptionFilter.module.css'
 
@@ -66,6 +65,15 @@ const OptionFilter = ({ setPage, setInput }) => {
         }
     }
 
+    const checkHandle = (event) => {
+        property = event.target.value;
+        if (property === 'si') {
+            axios.delete('http://localhost:3001/activities');
+        } else if (property.length === 0) {
+            
+        }
+    }
+
     useEffect(() => {
         dispatch(getActivities())
     }, [dispatch])
@@ -76,13 +84,12 @@ const OptionFilter = ({ setPage, setInput }) => {
 
     return (
         <div className={style.optionContainer}>
-
-            <div className={style.generalFilters}>
+            <div className={style.activitiesFilter}>
                 <label>Tipo de actividad: </label>
                 <select onChange={handleActivities}>
                     <option value="Seleccione" disabled={true}>Seleccione</option>
                     <option value=' ' ></option>
-                    {activities.map(activity => {
+                    {activities.map((activity) => {
                         return (
                             <option key={activity.id} value={activity.name}>
                                 {activity.name}
@@ -90,7 +97,27 @@ const OptionFilter = ({ setPage, setInput }) => {
                         )
                     })}
                 </select>
+
+                <div className={style.deleteContainer}>
+                    <button className={style.btnDelete}>Borrar todas las actividades</button>
+
+                    <div className={style.checkBox}>
+
+                        <div className={style.checkSi}>
+                            <label>si</label>
+                            <input className={style.inputDelete} type="checkbox" value="si" />
+                        </div>
+
+                        <div className={style.checkNo}>
+                            <label>no</label>
+                            <input className={style.inputDelete} type="checkbox" value="no" />
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
+
 
             <div className={style.filterContinent}>
                 <label>Filtrar por continente: </label>

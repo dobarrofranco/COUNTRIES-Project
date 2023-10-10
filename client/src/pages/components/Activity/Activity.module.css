@@ -1,4 +1,7 @@
 .activityContainer {
-    border: 1px solid black;
+    border: 2px solid var(--secundario);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+    backdrop-filter: blur(2px);
+    text-align: center;
+    margin-left: 2rem;
 }

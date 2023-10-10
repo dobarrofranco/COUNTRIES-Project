@@ -1,23 +1,33 @@
-:root {  
-    --primario: #77008f;
-    --secundario: #34a500;
-    --gris: #e1e1e1;
-    --blanco: #ffffff;
-    --negro: #000000;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+:root {
+  --primario: #f85d03;
+  --secundario: #e0960d;
+  --gris: #e1e1e1;
+  --blanco: #ffffff;
+  --negro: #000000;
 }
-  html {
-    box-sizing: border-box;
-    font-size: 62.5%; /* 1 rem = 10px */    
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: 'Josefin Sans', sans-serif;
 }
-  *, *:before, *:after {
-    box-sizing: inherit;
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
-  body {
-    margin: 0;
-    /* font-family: var(--fuenteParrafos); */
-    font-size: 1.6rem;
-    background-image: url('./pages/images/04-antique-minimap.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+  background-color: #ff9665;
+  /* background-image: url('./pages/images/10-events_tourism_day.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100%; */
+}

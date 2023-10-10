@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import style from './Nav.module.css'
 import { useSelector } from 'react-redux'
 
-export default function Nav () {
+export default function Nav() {
 
     const allCountries = useSelector(state => state.countriesCopy);
 
@@ -11,23 +11,25 @@ export default function Nav () {
     }
 
     return (
+        <div className={style.backNav}>
 
-        <div className={style.homeBack}>
-            
-            <Link to='/'>
-                <button>Página de bienvenida</button>
-            </Link>
+            <div className={style.navContainer}>
 
-            
-            <Link to='/home'>
-                <button onClick={handleClick()}>Todos los países</button>
-            </Link>
+                <Link to='/'>
+                    <button className={style.buttonNav}>Página de bienvenida</button>
+                </Link>
 
-            <Link to='/form'>
-                <button>Crear nueva actividad</button>
-            </Link>
 
+                <Link to='/home'>
+                    <button className={style.buttonNav} onClick={handleClick()}>Todos los países</button>
+                </Link>
+
+                <Link to='/form'>
+                    <button className={style.buttonNav} >Crear nueva actividad</button>
+                </Link>
+
+            </div>
+        
         </div>
-
     )
 }

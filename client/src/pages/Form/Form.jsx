@@ -111,7 +111,7 @@ const Form = () => {
 
             <div className={style.countryForm}>
               <p>Pais</p>
-              <select multiple className={style.selectForm} onChange={handleChange} value={form.countries} name='countries'>
+              <select className={style.selectForm} onChange={handleChange} value={form.countries} name='countries'>
                 <option disabled={true}>Seleccione (A - Z)</option>
                 {allCountries.map(country => {
                   return (

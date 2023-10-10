@@ -1,0 +1,55 @@
+.detailContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.countryInfoContainer {
+    color: black;
+    padding: 10px;
+    border: 2px solid var(--secundario);
+    margin: 0 80px 0 0;
+}
+
+.countryInfo {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+}
+
+.countrySpan {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.countryImg {
+    width: 854px;
+    height: 480px;
+    border: 2px solid var(--primario);
+}
+
+.backDetail {
+    background-image: url('../images/14-sunset-in-warm-colors.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+@media (max-width: 978px) {
+    .detailContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    .countryImg {
+        width: 240px;
+        height: 124px;
+    }
+    .countryInfoContainer {
+        display: grid;
+        margin: 0 0 30px 0;
+    }
+}

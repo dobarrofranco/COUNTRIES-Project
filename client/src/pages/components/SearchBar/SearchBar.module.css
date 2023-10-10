@@ -1,0 +1,30 @@
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.searchInput {
+    width: 40vw;
+    height: 5vh;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    border: 1px solid var(--primario);
+}
+
+.searchBtn {
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--secundario) hidden;
+    border-radius: 50%;
+    transition: 500ms;
+    background-color: transparent;
+}
+
+.searchBtn:hover {
+    transform: scale(1.2);
+    border: 2px solid var(--secundario);
+    border-radius: 50%;
+}

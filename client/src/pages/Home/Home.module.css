@@ -1,3 +1,12 @@
+.backHome {
+    background-image: url('./pages/images/10-events_tourism_day.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 .activitiesContainer {
     height: 0;
     width: 0;

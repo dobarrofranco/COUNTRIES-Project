@@ -1,0 +1,51 @@
+.navContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 247, 255, 0.788);
+    backdrop-filter: blur(2px);
+    width: 100vw;
+}
+
+@keyframes color-change-2x {
+    0% {
+        background: #f85d03bb
+    }
+
+    100% {
+        background: #e2f104c4
+    }
+}
+
+.backNav {
+    background-image: url('../images/13-warm-ilustrattion-abstract.jpg');
+    width: 100%;
+}
+
+.buttonNav {
+    border: 0;
+    height: 5vh;
+    font-family: 'Josefin Sans', sans-serif;
+    /* transform: translate(-50%, -50%); */
+    transition: .5s, color .10s;
+    -webkit-transition: .5s, color .10s;
+    -moz-transition: .5s, color .10s;
+    animation: color-change-2x 2s linear infinite alternate both;
+    appearance: none;
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.buttonNav:hover {
+    box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 15px 0px rgba(0,0,0,0.75);
+}

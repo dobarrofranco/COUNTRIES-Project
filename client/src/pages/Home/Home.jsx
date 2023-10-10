@@ -32,21 +32,24 @@ const Home = () => {
     }, [dispatch])
 
     return (
+        <div className={style.backHome}>
 
-        <div className={style.homeContainer}>
+            <div className={style.homeContainer}>
 
-            <SearchBar setPage={setPage} />
+                <OptionFilter setPage={setPage} setInput={setInput} />
 
-            <OptionFilter setPage={setPage} setInput={setInput} />
+                <SearchBar setPage={setPage} />
 
-            <div className={style.activitiesContainer}>
-                {activity.length > 0 ? <Activities /> : null}
+                <div className={style.activitiesContainer}>
+                    {activity.length > 0 ? <Activities /> : null}
+                </div>
+
+                <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages} />
+
+                {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages} input={input} setInput={setInput} /> : null}
+
             </div>
-
-            <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages} />
-
-            {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages} input={input} setInput={setInput} /> : null}
-
+            
         </div>
 
     )

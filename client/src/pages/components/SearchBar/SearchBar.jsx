@@ -1,6 +1,7 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import { useDispatch } from "react-redux";
 import {searchByName} from '../../../redux/actions';
+import style from './SearchBar.module.css'
 
 export default function SearchBar({setPage}) {
    const dispatch = useDispatch();
@@ -17,9 +18,9 @@ export default function SearchBar({setPage}) {
    }
 
    return (
-      <div>
-         <input type='search' name="searchBar" onChange={changeHandler} value={countryName}/>
-         <button onClick={dispatchHandler} >Buscar</button>
+      <div className={style.searchBarContainer}>
+         <input className={style.searchInput} type='search' name="searchBar" onChange={changeHandler} value={countryName}/>
+         <button className={style.searchBtn} onClick={dispatchHandler} >🔎</button>
       </div>
    );
 }
