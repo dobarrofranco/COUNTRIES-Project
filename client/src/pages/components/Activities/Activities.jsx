@@ -3,8 +3,9 @@ import Activity from '../Activity/Activity'
 import style from './Activities.module.css'
 
 const Activities = () => {
-
+    
     const activity = useSelector(state => state.activityType);
+
     return (
         <div className={style.activitiesContainer}>
             

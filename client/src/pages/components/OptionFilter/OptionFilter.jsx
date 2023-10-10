@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { filterContinent, orderName, orderPopulation, filterContinentOrderNameAZ, filterContinentOrderNameZA, filterContinentPopulationA, filterContinentPopulationD, activityType, getActivities, getContinents } from "../../../redux/actions"
+import axios from 'axios'
 
 import style from './OptionFilter.module.css'
 
@@ -11,6 +12,21 @@ const OptionFilter = ({ setPage, setInput }) => {
     const activities = useSelector(state => state.activities);
 
     const allContinents = useSelector(state => state.allContinents);
+
+    const [activityName, setActivityName] = useState("")
+
+    const [secure, setSecure] = useState(false)
+
+    const actNameChangeHandler = (event) => {
+        event.preventDefault()
+        setActivityName(event.target.value)
+    }
+
+    const deleteActNameHandler = () => {
+        axios.delete(`http://localhost:3001/activities/${activityName}`)
+            .then(alert('Actividad borrada'))
+            .then(window.location.reload())
+    }
 
     const continentHandler = (event) => {
         if (event.target.value !== ' ') {
@@ -65,13 +81,18 @@ const OptionFilter = ({ setPage, setInput }) => {
         }
     }
 
-    const checkHandle = (event) => {
-        property = event.target.value;
-        if (property === 'si') {
-            axios.delete('http://localhost:3001/activities');
-        } else if (property.length === 0) {
-            
-        }
+    const confirmationHandler = () => {
+        setSecure(true)
+    }
+
+    const affirmativeHandler = () => {
+        axios.delete('http://localhost:3001/activities')
+            .then(alert('Todas las actividades borradas'))
+            .then(window.location.reload())
+    }
+
+    const negativeHandler = () => {
+        setSecure(false)
     }
 
     useEffect(() => {
@@ -99,21 +120,24 @@ const OptionFilter = ({ setPage, setInput }) => {
                 </select>
 
                 <div className={style.deleteContainer}>
-                    <button className={style.btnDelete}>Borrar todas las actividades</button>
+                    <button onClick={confirmationHandler} className={style.btnDelete}>Borrar todas las actividades</button>
 
-                    <div className={style.checkBox}>
+                    {secure && <label className={style.btnAreSure}>Está seguro?</label>}
 
-                        <div className={style.checkSi}>
-                            <label>si</label>
-                            <input className={style.inputDelete} type="checkbox" value="si" />
-                        </div>
+                    {secure && <button onClick={affirmativeHandler} className={style.btnConfirmation} value='si'>Si</button>}
 
-                        <div className={style.checkNo}>
-                            <label>no</label>
-                            <input className={style.inputDelete} type="checkbox" value="no" />
-                        </div>
+                    {secure && <button onClick={negativeHandler} className={style.btnConfirmation}>No</button>}
+
+                    <div className={style.deleteNameContainer}>
+                        <input
+                            onChange={actNameChangeHandler}
+                            className={style.deleteInput}
+                            placeholder="Eliminar por nombre"
+                            type="text"
+                            value={activityName}
+                        />
+                        <button onClick={deleteActNameHandler} className={style.trashBtn} >🗑</button>
                     </div>
-
                 </div>
 
             </div>

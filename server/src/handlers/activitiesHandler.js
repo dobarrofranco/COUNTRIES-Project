@@ -52,11 +52,11 @@ const deleteAllActivitiesHandler = async (req, res) => {
 
 const deleteActivityHandler = async (req, res) => {
     
-    const { id } = req.params;
+    const { name } = req.params;
     
     try {
         
-        await deleteActivity(id);
+        await deleteActivity(name);
         return res.status(200).json({message: 'Activity deleted'});
 
     } catch (error) {

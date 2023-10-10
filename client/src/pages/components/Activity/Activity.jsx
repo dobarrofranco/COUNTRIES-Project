@@ -1,6 +1,7 @@
 import style from './Activity.module.css'
 
 const Activity = ({name, difficulty, duration, season, country}) => {
+
     return (
         <div className={style.activityContainer}>
             <h4>País: {country}</h4>

@@ -1,4 +1,5 @@
 const { Activity, Country } = require('../db');
+const { Op } = require('sequelize')
 
 const postActivity = async (name, difficulty, duration, season, countries ) => {
 
@@ -52,12 +53,14 @@ const deleteAllActivities = async () => {
     }
 }
 
-const deleteActivity = async (id) => {
+const deleteActivity = async (name) => {
     try {
         
         return await Activity.destroy({
             where: {
-                id: id
+                name: {
+                    [Op.iLike]: `%${name}%`
+                }
             }
         });
 

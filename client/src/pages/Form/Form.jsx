@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useState } from "react"
 import { validation } from "./validation"
 import { useDispatch, useSelector } from "react-redux"
-import { getCountries, activityType } from "../../redux/actions"
+import { getCountries } from "../../redux/actions"
 import axios from "axios"
 import style from './Form.module.css'
 
@@ -37,16 +37,17 @@ const Form = () => {
     const property = event.target.name
     const value = event.target.value
 
-    setForm({
-      ...form,
-      [property]: value
-    });
-
-    setErrors(validation({
-      ...form,
-      [property]: value
-    }));
-
+    if (property !== ' ') {
+      setForm({
+        ...form,
+        [property]: value
+      });
+  
+      setErrors(validation({
+        ...form,
+        [property]: value
+      }));
+    }
   }
 
   const disableHandler = () => {
@@ -113,6 +114,7 @@ const Form = () => {
               <p>Pais</p>
               <select className={style.selectForm} onChange={handleChange} value={form.countries} name='countries'>
                 <option disabled={true}>Seleccione (A - Z)</option>
+                <option value=' '> </option>
                 {allCountries.map(country => {
                   return (
                     <option

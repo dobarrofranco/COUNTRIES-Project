@@ -34,6 +34,11 @@
         margin: 10px;
         grid-column: 1 / 2;
     }
+
+    .deleteInput {
+        margin-top: 20px;
+        width: 50vw;
+    }
 }
 
 .generalFilters {
@@ -65,6 +70,10 @@
     flex-direction: column;
 }
 
+.btnAreSure {
+    margin-top: 10px;
+}
+
 .checkBox {
     display: flex;
     justify-content: space-around;
@@ -73,17 +82,36 @@
 }
 
 .btnDelete {
-    width: 130px;
-    height: 50px;
+    width: 160px;
+    height: 40px;
 }
 
-.inputDelete {
-    position: relative;
-    top: 3px;
-    left: 3px;
-    margin: 0;
-    width: 10px;
+.deleteNameContainer {
+    display: flex;
+    gap: 10px;
 }
+
+.deleteInput {
+    margin-top: 20px;
+    width: 10vw;
+}
+
+.trashBtn {
+    margin-top: 20px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+    transition: 500ms;
+    background-color: transparent;
+    font-size: 19px;
+}
+
+.trashBtn:hover {
+    transform: scale(1.2);
+    color: red;
+}
+
 
 .filterContinent {
     display: flex;
