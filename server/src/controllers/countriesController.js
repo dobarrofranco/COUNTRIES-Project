@@ -21,13 +21,18 @@ const getCountriesById = async (id) => {
     try {
 
         const findId = await Country.findByPk(id, {
-            include: Activity
+            include: [
+                {
+                    model: Activity,
+                    attributes: ['name', 'difficulty', 'duration', 'season']
+                }
+            ]
         });
 
         return findId;
 
     } catch (error) {
-        throw new Error('No id found');
+        throw new Error(error);
     }
 }
 
@@ -39,13 +44,13 @@ const getNameCountries = async (name) => {
             where: {
                 name: name.toUpperCase()
             },
-            include: Activity 
+            include: Activity
         });
 
         if (findName === null) {
             throw new Error('No names found');
         }
-        
+
         arr.push(findName);
         return arr;
 
