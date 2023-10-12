@@ -16,7 +16,7 @@ const Detail = () => {
     dispatch(detailCountries(id));
     return () => {
       dispatch(cleanDetail());
-    };
+    }
   }, [dispatch, id]);
 
   useEffect(() => {

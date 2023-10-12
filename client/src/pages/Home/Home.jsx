@@ -27,9 +27,9 @@ const Home = () => {
         dispatch(getCountries());
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(activityType());
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(activityType());
+    // }, [dispatch])
 
     return (
         <div className={style.backHome}>

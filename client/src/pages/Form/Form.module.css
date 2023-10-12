@@ -71,3 +71,9 @@ input {
 .formButton {
     padding: 20px;
 }
+
+.errorsInput {
+    /* font-weight: bold;
+    color: red; */
+    border-bottom: 1px solid var(--secundario);
+}

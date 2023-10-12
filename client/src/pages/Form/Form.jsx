@@ -11,6 +11,8 @@ const Form = () => {
 
   let allCountries = useSelector(state => state.countriesCopy);
 
+  const [selectedOptions, setSelectedOptions] = useState([]);
+
   allCountries = allCountries.sort((a, b) => a.name.localeCompare(b.name));
 
   useEffect(() => {
@@ -22,7 +24,7 @@ const Form = () => {
     difficulty: '',
     duration: '',
     season: '',
-    countries: ''
+    countries: []
   })
 
   const [errors, setErrors] = useState({
@@ -32,6 +34,16 @@ const Form = () => {
     season: '',
     countries: ''
   })
+
+  const handleSelectChange = (event) => {
+    const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
+    setSelectedOptions(selectedValues);
+
+    setForm({
+      ...form,
+      [event.target.name]: selectedValues
+    });
+  };
 
   const handleChange = (event) => {
     const property = event.target.name
@@ -65,7 +77,7 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!form.name || !form.difficulty || !form.duration || !form.season || !form.countries) {
+    if (!form.name || !form.difficulty || !form.duration || !form.season || form.countries.length === 0 || form.countries === ' ') {
       alert('Campos incompletos')
       return
     }
@@ -86,44 +98,45 @@ const Form = () => {
 
           <div className={style.nombreForm}>
             <p className={style.formProps}>Nombre</p>
-            <input type="text" placeholder="Tipo de actividad" onChange={handleChange} name='name' value={form.name} />
-            {errors.name && <p>{errors.name}</p>}
+            <input style={{borderColor: errors.name ? 'red' : 'initial'}} type="text" placeholder="Tipo de actividad" onChange={handleChange} name='name' value={form.name} />
+            {errors.name && <p className={style.errorsInput}>{errors.name}</p>}
           </div>
 
           <div className={style.diffForm}>
             <p className={style.formProps}>Dificultad</p>
-            <input type="number" placeholder="1 a 5" onChange={handleChange} name='difficulty' value={form.difficulty} />
-            {errors.difficulty && <p>{errors.difficulty}</p>}
+            <input style={{borderColor: errors.difficulty ? 'red' : 'initial'}} type="number" placeholder="1 a 5" onChange={handleChange} name='difficulty' value={form.difficulty} />
+            {errors.difficulty && <p className={style.errorsInput}>{errors.difficulty}</p>}
           </div>
 
           <div className={style.durForm}>
             <p className={style.formProps}>Duración</p>
-            <input type="time" onChange={handleChange} name='duration' value={form.duration} />
-            {errors.duration && <p>{errors.duration}</p>}
+            <input style={{borderColor: errors.duration ? 'red' : 'initial'}} type="time" onChange={handleChange} name='duration' value={form.duration} />
+            {errors.duration && <p className={style.errorsInput}>{errors.duration}</p>}
           </div>
 
           <div className={style.tempForm}>
             <p className={style.formProps}>Temporada</p>
-            <input type="text" onChange={handleChange} name='season' value={form.season} />
-            {errors.season && <p>{errors.season}</p>}
+            <input style={{borderColor: errors.season ? 'red' : 'initial'}} type="text" onChange={handleChange} name='season' value={form.season} />
+            {errors.season && <p className={style.errorsInput}>{errors.season}</p>}
           </div>
 
           <div className={style.selectsForm}>
 
             <div className={style.countryForm}>
               <p>Pais</p>
-              <select className={style.selectForm} onChange={handleChange} value={form.countries} name='countries'>
+              <select multiple style={{borderColor: errors.countries ? 'red' : 'initial'}} className={style.selectForm} onChange={handleSelectChange} name='countries'>
                 <option disabled={true}>Seleccione (A - Z)</option>
                 <option value=' '> </option>
                 {allCountries.map(country => {
                   return (
                     <option
                       key={country.id}
+                      value={country.id}
                     >{country.name}</option>
                   )
                 })}
               </select>
-              {errors.countries && <p>{errors.countries}</p>}
+              {errors.countries && <p className={style.errorsInput}>{errors.countries}</p>}
             </div>
 
             <div className={style.formButton}>
