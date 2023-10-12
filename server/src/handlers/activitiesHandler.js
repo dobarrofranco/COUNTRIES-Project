@@ -9,7 +9,7 @@ const postActivitiesHandler = async (req, res) => {
         if (!req.body) {
             return res.status(404).json({ error: "not found" });  
         } 
-        if (difficulty > 5 || difficulty <= 0) {
+        if (difficulty > 5 || difficulty < 1) {
             return res.status(400).json({ error: "Invalid difficulty. It must be between 1 and 5" });
         } 
 
@@ -52,11 +52,11 @@ const deleteAllActivitiesHandler = async (req, res) => {
 
 const deleteActivityHandler = async (req, res) => {
     
-    const { name } = req.params;
+    const { id } = req.params;
     
     try {
         
-        await deleteActivity(name);
+        await deleteActivity(id);
         return res.status(200).json({message: 'Activity deleted'});
 
     } catch (error) {

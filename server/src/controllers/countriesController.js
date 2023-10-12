@@ -29,7 +29,26 @@ const getCountriesById = async (id) => {
             ]
         });
 
-        return findId;
+        const countryDetail = [findId]
+
+        const cleanCountry = countryDetail.map((country) => ({
+            id: country.id,
+            name: country.name,
+            image: country.image,
+            continents: country.continents,
+            capital: country.capital,
+            subregion: country.subregion,
+            area: country.area,
+            population: country.population,
+            activities: country.Activities.map((activity) => ({
+                name: activity.name,
+                difficulty: activity.difficulty,
+                duration: activity.duration,
+                season: activity.season
+            }))
+        }))
+
+        return cleanCountry;
 
     } catch (error) {
         throw new Error(error);

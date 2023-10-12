@@ -8,6 +8,6 @@ router.get("/", getActivityHandler);
 
 router.delete("/", deleteAllActivitiesHandler);
 
-router.delete("/:name", deleteActivityHandler);
+router.delete("/:id", deleteActivityHandler);
 
 module.exports = router;

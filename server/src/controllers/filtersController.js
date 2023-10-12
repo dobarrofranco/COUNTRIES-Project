@@ -101,7 +101,7 @@ const activityType = async (name) => {
             include: [
                 {
                     model: Country,
-                    attributes: ['name']
+                    attributes: ['name', 'id', 'image']
                 }
             ]
         });
@@ -116,7 +116,11 @@ const activityType = async (name) => {
             difficulty: activity.difficulty,
             duration: activity.duration,
             season: activity.season,
-            countries: activity.Countries.map(country => country.name)
+            countries: activity.Countries.map((country) => ({
+                name: country.name,
+                id: country.id,
+                image: country.image 
+            }))
         }))
 
         return cleanActivity;
