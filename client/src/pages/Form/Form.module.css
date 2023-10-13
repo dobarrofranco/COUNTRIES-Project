@@ -51,6 +51,7 @@ input {
     position: relative;
     padding: 20px;
     left: 50%;
+    bottom: 12%;
 }
 
 .countryForm {
@@ -59,7 +60,7 @@ input {
 
 .selectForm {
     width: 205px;
-    /* height: 200px; */
+    height: 200px;
     text-align: center;
 }
 

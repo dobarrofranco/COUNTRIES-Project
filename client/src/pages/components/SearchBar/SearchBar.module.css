@@ -1,13 +1,14 @@
 .searchBarContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 2rem;
-    gap: 2rem;
 }
 
 .searchInput {
-    width: 40vw;
-    height: 5vh;
+    margin: 0 2rem 0 2rem;
+    width: 40%;
+    height: 3rem;
     font-size: 18px;
     font-family: 'Josefin Sans', sans-serif;
     border: 1px solid var(--primario);
@@ -17,14 +18,20 @@
     border: 0;
     cursor: pointer;
     background-color: transparent;
-    border: 2px solid var(--secundario) hidden;
-    border-radius: 50%;
     transition: 500ms;
-    background-color: transparent;
 }
 
 .searchBtn:hover {
     transform: scale(1.2);
-    border: 2px solid var(--secundario);
-    border-radius: 50%;
+}
+
+.homeBtn {
+    border: 0;
+    cursor: pointer;
+    transition: 500ms;
+    background-color: transparent;
+}
+
+.homeBtn:hover {
+    transform: scale(1.2);
 }

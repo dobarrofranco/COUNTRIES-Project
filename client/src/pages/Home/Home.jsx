@@ -27,10 +27,6 @@ const Home = () => {
         dispatch(getCountries());
     }, [dispatch])
 
-    // useEffect(() => {
-    //     dispatch(activityType());
-    // }, [dispatch])
-
     return (
         <div className={style.backHome}>
 
@@ -40,16 +36,16 @@ const Home = () => {
 
                 <SearchBar setPage={setPage} />
 
-                <div className={style.activitiesContainer}>
+                <div className={style.cardActivityContainer}>
                     {activity.length > 0 ? <Activities /> : null}
-                </div>
 
-                <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages} />
+                    <Cards page={page} setPage={setPage} perPage={perPage} totalPages={totalPages} />
+                </div>
 
                 {countries.length !== 1 ? <Paginated page={page} setPage={setPage} totalPages={totalPages} input={input} setInput={setInput} /> : null}
 
             </div>
-            
+
         </div>
 
     )

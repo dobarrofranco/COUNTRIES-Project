@@ -29,7 +29,7 @@ export const validation = (form) => {
         errors.season = 'Debe introducir una estación válida (Verano, Otoño, Invierno, Primavera)'
     }
 
-    if (form.countries === ' ' || form.countries.length === 0) {
+    if (form.countries === ' ' ) {
         errors.countries = 'Debe seleccionar un país'
     }
 

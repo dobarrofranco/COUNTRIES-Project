@@ -3,7 +3,9 @@
 .landingBack {
     width: 100vw;
     height: 100vh;
-    background-image: url('../images/12-plane.jpg');
+    background-image: url('../images/airplane.gif');
+    border: 60px solid;
+    border-image: linear-gradient(#f85d03, #e1f104) 30;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -24,7 +26,7 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 48.3%;
     border: 0;
     padding: 2px;

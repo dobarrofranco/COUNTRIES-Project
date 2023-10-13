@@ -11,9 +11,9 @@ const Form = () => {
 
   let allCountries = useSelector(state => state.countriesCopy);
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
-
   allCountries = allCountries.sort((a, b) => a.name.localeCompare(b.name));
+
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
   useEffect(() => {
     dispatch(getCountries())
@@ -35,6 +35,7 @@ const Form = () => {
     countries: ''
   })
 
+
   const handleSelectChange = (event) => {
     const selectedValues = Array.from(event.target.selectedOptions, (option) => option.value);
     setSelectedOptions(selectedValues);
@@ -54,7 +55,7 @@ const Form = () => {
         ...form,
         [property]: value
       });
-  
+
       setErrors(validation({
         ...form,
         [property]: value
@@ -83,7 +84,7 @@ const Form = () => {
     }
 
     axios.post('http://localhost:3001/activities', form)
-    .then(alert('Actividad Creada'))
+      .then(alert('Actividad Creada'))
 
   }
 
@@ -98,33 +99,34 @@ const Form = () => {
 
           <div className={style.nombreForm}>
             <p className={style.formProps}>Nombre</p>
-            <input style={{borderColor: errors.name ? 'red' : 'initial'}} type="text" placeholder="Tipo de actividad" onChange={handleChange} name='name' value={form.name} />
+            <input style={{ borderColor: errors.name ? 'red' : 'initial' }} type="text" placeholder="Tipo de actividad" onChange={handleChange} name='name' value={form.name} />
             {errors.name && <p className={style.errorsInput}>{errors.name}</p>}
           </div>
 
           <div className={style.diffForm}>
             <p className={style.formProps}>Dificultad</p>
-            <input style={{borderColor: errors.difficulty ? 'red' : 'initial'}} type="number" placeholder="1 a 5" onChange={handleChange} name='difficulty' value={form.difficulty} />
+            <input style={{ borderColor: errors.difficulty ? 'red' : 'initial' }} type="number" placeholder="1 a 5" onChange={handleChange} name='difficulty' value={form.difficulty} />
             {errors.difficulty && <p className={style.errorsInput}>{errors.difficulty}</p>}
           </div>
 
           <div className={style.durForm}>
             <p className={style.formProps}>Duración</p>
-            <input style={{borderColor: errors.duration ? 'red' : 'initial'}} type="time" onChange={handleChange} name='duration' value={form.duration} />
+            <input style={{ borderColor: errors.duration ? 'red' : 'initial' }} type="time" onChange={handleChange} name='duration' value={form.duration} />
             {errors.duration && <p className={style.errorsInput}>{errors.duration}</p>}
           </div>
 
           <div className={style.tempForm}>
             <p className={style.formProps}>Temporada</p>
-            <input style={{borderColor: errors.season ? 'red' : 'initial'}} type="text" onChange={handleChange} name='season' value={form.season} />
+            <input style={{ borderColor: errors.season ? 'red' : 'initial' }} type="text" onChange={handleChange} name='season' value={form.season} />
             {errors.season && <p className={style.errorsInput}>{errors.season}</p>}
           </div>
 
           <div className={style.selectsForm}>
 
             <div className={style.countryForm}>
-              <p>Pais</p>
-              <select multiple style={{borderColor: errors.countries ? 'red' : 'initial'}} className={style.selectForm} onChange={handleSelectChange} name='countries'>
+              <p>Países</p>
+              <p style={{ fontSize: '13px' }}>(CTRL + CLICK para selección múltiple)</p>
+              <select multiple style={{ borderColor: errors.countries ? 'red' : 'initial' }} className={style.selectForm} onChange={handleSelectChange} name='countries'>
                 <option disabled={true}>Seleccione (A - Z)</option>
                 <option value=' '> </option>
                 {allCountries.map(country => {

@@ -1,8 +1,203 @@
+/* Background Continent */
+
+.backAfrica {
+    background-image: url('../images/14-sunset-in-warm-colors.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backEurope {
+    background-image: url('../images/15-warm-europe.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backOceania {
+    background-image: url('../images/16-warm-oceania.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backAsia {
+    background-image: url('../images/17-warm-asia.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backSouthAmerica {
+    background-image: url('../images/18-warm-southamerica.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backNorthAmerica {
+    background-image: url('../images/19-warm-northamerica.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backAntarctica {
+    background-image: url('../images/20-Antarctica.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.backDefault {
+    background-image: url('../images/01-MultiColoMap.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Background Continent */
+
+/* Info Continent */
+
+.infoAfrica {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: white
+}
+
+.infoEurope {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: black
+}
+
+.infoOceania {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: var(--primario)
+}
+
+.infoAsia {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: black
+}
+
+.infoSouthAmerica {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: black
+}
+
+.infoNorthAmerica {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: var(--primario)
+}
+
+.infoAntarctica {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: var(--primario)
+}
+
+.infoDefault {
+    padding: 5px;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    color: var(--primario)
+}
+
+/* Info Continent */
+
+.spanAfrica {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.spanEurope {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black
+}
+
+.spanOceania {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.spanAsia {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.spanSouthAmerica {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+.spanNorthAmerica {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.spanAntarctica {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black
+}
+
+.spanDefault {
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+
+
 .detailContainer {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 10px;
+    backdrop-filter: blur(2px);
 }
 
 .countryInfoContainer {
@@ -12,31 +207,10 @@
     margin: 0 80px 0 0;
 }
 
-.countryInfo {
-    padding: 5px;
-    margin: 10px 0 0 0;
-    font-weight: normal;
-}
-
-.countrySpan {
-    padding: 5px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
 .countryImg {
     width: 854px;
     height: 480px;
     border: 2px solid var(--primario);
-}
-
-.backDetail {
-    background-image: url('../images/14-sunset-in-warm-colors.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
 }
 
 @media (max-width: 978px) {
@@ -44,12 +218,19 @@
         display: flex;
         flex-direction: column;
     }
+
     .countryImg {
         width: 240px;
         height: 124px;
     }
+
     .countryInfoContainer {
         display: grid;
         margin: 0 0 30px 0;
     }
+}
+
+.activityName {
+    margin: 0;
+    padding: 5px;
 }

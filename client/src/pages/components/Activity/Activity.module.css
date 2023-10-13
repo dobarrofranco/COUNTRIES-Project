@@ -8,4 +8,10 @@
 
 .countryList {
     text-align: left;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+
+.navLink {
+    color: black
 }

@@ -21,7 +21,7 @@ export default function Nav() {
 
 
                 <Link to='/home'>
-                    <button className={style.buttonNav} onClick={handleClick()}>Todos los países</button>
+                    <button className={style.buttonNav} onClick={handleClick()}>Página principal</button>
                 </Link>
 
                 <Link to='/form'>
